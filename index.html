@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>¯\_(ツ)_/¯</title>
+		<link rel="icon" type="image/png" href="/favicon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			@font-face {
+				font-family:"AnnieUseYourTelescope";
+				src: url("/fonts/AnnieUseYourTelescope-Regular.woff2") format("woff2")
+			}
+
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				background-color: #f8f7f9;
+				box-sizing: border-box;
+				padding: 1em;
+				margin: 0 auto;
+				max-width: none;
+				text-align: center;
+			}
+
+			.rainbow {
+    				text-align: center;
+    				font-size: 32px;
+    				font-family: monospace;
+    				letter-spacing: 5px;
+			}
+			
+			.rainbow_text_animated {
+				font-family: 'AnnieUseYourTelescope';
+				font-size: 20vw;
+				font-weight: 100;
+				background: linear-gradient(to right, #D52D00, #EF7627, #FF9A56, #FFFFFF, #D162A4, #855690, #A30262);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				animation: rainbow_animation 8s ease-in-out infinite;
+				background-size: 400% 100%;
+			}
+
+			@keyframes rainbow_animation {
+    				0%,100% {
+        				background-position: 0 0;
+    				}
+
+    				50% {
+        				background-position: 100% 0;
+    				}
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="rainbow rainbow_text_animated">¯\_(ツ)_/¯</h1>
+		<script type="text/javascript">
+			const span = document.querySelector("h1");
+
+			span.onclick = function() {
+				document.execCommand("copy");
+				document.body.style.color = "purple"; 
+			}
+
+			span.addEventListener("copy", function(event) {
+				event.preventDefault();
+				if (event.clipboardData) {
+					event.clipboardData.setData("text/plain", span.textContent);
+					console.log(event.clipboardData.getData("text"))
+				}
+			});
+		</script>
+	</body>
+</html>
+
